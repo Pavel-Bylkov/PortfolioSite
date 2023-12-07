@@ -21,19 +21,26 @@ def home(request):
         user.save()
         user = Person.objects.all()
     print(user[0].first_name)
-    contacts = {"email": user[0].email, "phone":user[0].number, "website": f"http://{user[0].url}/", "linkedin":"", "github":"", "twitter":"", "snapchat":"bcecam1"}
+    contacts = {"email": user[0].email, "phone":user[0].number, "website": f"{user[0].url}", "linkedin":"", "github":"", "twitter":"", "snapchat":"bcecam1"}
     context = {"vars": "hello world", "name": f"{user[0].first_name} {user[0].last_name}", "description": user[0].profession.title, "contacts":contacts}
     return render(request, 'mainapp/index.html', context)
 
 def setprofile(request):
-    personform=PersonForm(prefix="person")
+    user = Person.objects.all().values()[0]
+    personform=PersonForm(initial=user, prefix="person")
     if request.method=="POST":
+
         bound_form=PersonForm(request.POST)
         if bound_form.is_valid():
-            first_name = bound_form.cleaned_data["first_name"]
-            last_name = bound_form.cleaned_data["last_name"]
-            email = bound_form.cleaned_data["email"]
-            number = bound_form.cleaned_data["number"]
-            url = bound_form.cleaned_data["url"]
-            profession = bound_form.cleaned_data["profession"]
-            roles = bound_form.cleaned_data["roles"]
+            user = Person.objects.all()[0]
+            user.first_name = bound_form.cleaned_data["first_name"]
+            user.last_name = bound_form.cleaned_data["last_name"]
+            user.email = bound_form.cleaned_data["email"]
+            user.number = bound_form.cleaned_data["number"]
+            user.url = bound_form.cleaned_data["url"]
+            user.profession = bound_form.cleaned_data["profession"]
+            user.roles = bound_form.cleaned_data["roles"]
+            user.save()
+
+    context={'form':personform}
+    return render(request, 'mainapp/Profile.html', context)
