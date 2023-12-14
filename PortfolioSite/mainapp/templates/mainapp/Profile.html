@@ -19,7 +19,12 @@
 <!--  </div>-->
   {% csrf_token %}
   {{form.as_p}}
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" name="person">Submit</button>
+</form>
+<form action="{% url 'setprofile' %}" method="post">
+  {% csrf_token %}
+  {{professionform.as_p}}
+  <button type="submit" class="btn btn-primary" name="prof">Submit</button>
 </form>
 
 

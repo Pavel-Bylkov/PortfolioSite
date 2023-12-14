@@ -10,12 +10,16 @@ class PersonForm(forms.ModelForm):
         widgets = {"first_name":forms.TextInput(), "last_name":forms.TextInput(), "email":forms.EmailInput(), "number":forms.TextInput(), "url":forms.URLInput(),
                   "linkedin":forms.TextInput(), "github":forms.TextInput(), "twitter":forms.TextInput(),
                    "photo":forms.FileInput()},
+    def is_valid(self):
+        valid = super().is_valid()
+        return valid
+
 class ProfessionForm(forms.ModelForm):
     class Meta:
         model = Profession
         fields = ["title"]
         labels = {"title":"profession"}
-        widgets ={"title":forms.Select()}
+        widgets ={"title":forms.TextInput()}
 
 
 class EducationForm(forms.ModelForm):

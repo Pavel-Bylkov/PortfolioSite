@@ -28,19 +28,41 @@ def home(request):
 def setprofile(request):
     user = Person.objects.all().values()[0]
     personform=PersonForm(initial=user, prefix="person")
+    professionform=ProfessionForm(prefix="prof")
     if request.method=="POST":
 
-        bound_form=PersonForm(request.POST)
-        if bound_form.is_valid():
+        if "person" in request.POST:
+            bound_form=PersonForm(request.POST, prefix="person")
+            print(bound_form.data)
+            #cleaneddata=bound_form.clean()
+            #if bound_form.is_valid():
             user = Person.objects.all()[0]
-            user.first_name = bound_form.cleaned_data["first_name"]
-            user.last_name = bound_form.cleaned_data["last_name"]
-            user.email = bound_form.cleaned_data["email"]
-            user.number = bound_form.cleaned_data["number"]
-            user.url = bound_form.cleaned_data["url"]
-            user.profession = bound_form.cleaned_data["profession"]
-            user.roles = bound_form.cleaned_data["roles"]
-            user.save()
+            if user.first_name != bound_form.data.get("person-first_name"):
+                user.first_name= bound_form.data.get("person-first_name")
+            if user.last_name != bound_form.data.get("person-last_name"):
+                user.last_name= bound_form.data.get("person-last_name")
+            if user.email != bound_form.data.get("person-email"):
+                user.email= bound_form.data.get("person-email")
+            if user.number != bound_form.data.get("person-number"):
+                user.number= bound_form.data.get("person-number")
+            if user.url != bound_form.data.get("person-url"):
+                user.url= bound_form.data.get("person-url")
+            if user.linkedin != bound_form.data.get("person-linkedin"):
+                user.linkedin= bound_form.data.get("person-linkedin")
+            if user.twitter != bound_form.data.get("person-twitter"):
+                user.twitter= bound_form.data.get("person-twitter")
+            if user.github != bound_form.data.get("person-github"):
+                user.github= bound_form.data.get("person-github")
+            if user.photo != bound_form.data.get("person-photo"):
+                user.photo= bound_form.data.get("person-photo")
 
-    context={'form':personform}
+            user.save()
+        if "prof" in request.POST:
+            PROFform=ProfessionForm(request.POST, prefix="prof")
+            print(PROFform.data)
+            PROFform.save()
+
+
+
+    context={'form':personform, "professionform":professionform}
     return render(request, 'mainapp/Profile.html', context)
