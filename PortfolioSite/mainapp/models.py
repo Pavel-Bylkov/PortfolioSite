@@ -12,8 +12,6 @@ class Person(models.Model):
     twitter = models.CharField(max_length=50, blank=True)
     profession = models.ForeignKey("Profession", on_delete=models.CASCADE)
     education = models.ManyToManyField("Education", blank=True)
-    education_start = models.CharField(max_length=50, blank=True)
-    education_end = models.CharField(max_length=50, blank=True)
     career_profile = models.TextField(max_length=1000, blank=True)
     languages = models.ManyToManyField("Languages", blank=True)
     interests = models.ManyToManyField("Interests", blank=True)
@@ -21,6 +19,9 @@ class Person(models.Model):
     companies = models.ManyToManyField("Companies", blank=True)
     roles = models.JSONField(blank=True)
     photo = models.ImageField(upload_to="photos/%Y/%m/", blank=True)
+    def __str__(self):
+        return self.first_name +" "+ self.last_name
+
 
 
 class Profession(models.Model):
@@ -30,31 +31,50 @@ class Profession(models.Model):
 
 
 class Education(models.Model):
-    title = models.CharField(max_length=50, blank=True)
-    location = models.ForeignKey("City", on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    school = models.ForeignKey("School", on_delete=models.CASCADE)
+    time = models.CharField(max_length=30, blank=True)
+    def __str__(self):
+        return self.title
+class School(models.Model):
+    title = models.CharField(max_length=60)
+    def __str__(self):
+        return self.title
 
 
 class City(models.Model):
     title = models.CharField(max_length=50, blank=True)
     country = models.ForeignKey("Country", on_delete=models.CASCADE, related_name="Cities")
+    def __str__(self):
+        return self.title
 
 
 class Country(models.Model):
     title = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.title
 
 
 class Languages(models.Model):
-    title = models.CharField(max_length=15, blank=True)
+    title = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.title
 
 
 class Interests(models.Model):
     title = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.title
 
 
 class Experiences(models.Model):
     title = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.title
 
 
 class Companies(models.Model):
     title = models.CharField(max_length=50, blank=True)
+    def __str__(self):
+        return self.title
 

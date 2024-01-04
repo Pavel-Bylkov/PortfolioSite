@@ -24,7 +24,12 @@
 <form action="{% url 'setprofile' %}" method="post">
   {% csrf_token %}
   {{professionform.as_p}}
-  <button type="submit" class="btn btn-primary" name="prof">Submit</button>
+  <button type="submit" class="btn btn-primary" name="prof">Add</button>
+</form>
+<form action="{% url 'setprofile' %}" method="post">
+  {% csrf_token %}
+  {{educationform.as_p}}
+  <button type="submit" class="btn btn-primary" name="edu">Add</button>
 </form>
 
 
