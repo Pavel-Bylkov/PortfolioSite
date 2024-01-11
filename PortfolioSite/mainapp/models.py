@@ -19,6 +19,8 @@ class Person(models.Model):
     companies = models.ManyToManyField("Companies", blank=True)
     roles = models.JSONField(blank=True)
     photo = models.ImageField(upload_to="photos/%Y/%m/", blank=True)
+    projects = models.ManyToManyField("Project", blank=True)
+    project_description = models.TextField(max_length=1000, blank=True)
     def __str__(self):
         return self.first_name +" "+ self.last_name
 
@@ -57,8 +59,9 @@ class Country(models.Model):
 
 class Languages(models.Model):
     title = models.CharField(max_length=50, blank=True)
+    skill = models.CharField(max_length=25, blank=True)
     def __str__(self):
-        return self.title
+        return self.title + self.skill
 
 
 class Interests(models.Model):
@@ -69,6 +72,9 @@ class Interests(models.Model):
 
 class Experiences(models.Model):
     title = models.CharField(max_length=50, blank=True)
+    time = models.CharField(max_length=50, blank=True)
+    location = models.CharField(max_length=50, blank=True)
+    description = models.TextField(max_length=1000, blank=True)
     def __str__(self):
         return self.title
 
@@ -78,3 +84,10 @@ class Companies(models.Model):
     def __str__(self):
         return self.title
 
+class Project(models.Model):
+    title = models.CharField(max_length=50, blank=True)
+    url = models.URLField(max_length=200, blank=True)
+    description = models.CharField(max_length=1000, blank=True)
+
+    def __str__(self):
+        return self.title

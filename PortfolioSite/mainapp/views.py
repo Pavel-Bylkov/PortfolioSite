@@ -15,7 +15,7 @@ def home(request):
         school.save()
         education = Education.objects.create(title="Specialty", school=school, time="Time")
         education.save()
-        languages = Languages.objects.create(title="Languages")
+        languages = Languages.objects.create(title="English", skill="native")
         languages.save()
         interests = Interests.objects.create(title="Interests")
         interests.save()
@@ -44,9 +44,10 @@ def home(request):
     contacts = {"email": user[0].email, "phone":user[0].number, "website": f"{user[0].url}", "linkedin":"", "github":"", "twitter":"", "snapchat":"bcecam1"}
     edu=user[0].education.all()[0]
     education = {"title": edu.title, "school": edu.school.title, "time": edu.time}
-    print(user[0].education.all()[0])
+    print(list(user[0].languages.all()))
     context = {"name": f"{user[0].first_name} {user[0].last_name}", "description": user[0].profession.title, "contacts":contacts,
-               "edu": education}
+               "edu": education, "user":user[0], "languages": user[0].languages.all(), "interests": user[0].interests.all(), "experiences": user[0].experiences.all(),
+               "projects": user[0].projects.all()}
     return render(request, 'mainapp/index.html', context)
 
 def setprofile(request):
