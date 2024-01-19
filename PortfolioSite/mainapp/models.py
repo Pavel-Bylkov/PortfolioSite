@@ -21,6 +21,8 @@ class Person(models.Model):
     photo = models.ImageField(upload_to="photos/%Y/%m/", blank=True)
     projects = models.ManyToManyField("Project", blank=True)
     project_description = models.TextField(max_length=1000, blank=True)
+    skills = models.ManyToManyField("Skills", blank=True)
+
     def __str__(self):
         return self.first_name +" "+ self.last_name
 
@@ -88,6 +90,13 @@ class Project(models.Model):
     title = models.CharField(max_length=50, blank=True)
     url = models.URLField(max_length=200, blank=True)
     description = models.CharField(max_length=1000, blank=True)
+
+    def __str__(self):
+        return self.title
+
+class Skills(models.Model):
+    title = models.CharField(max_length=50, blank=True)
+    value = models.CharField(max_length=5, blank=True)
 
     def __str__(self):
         return self.title

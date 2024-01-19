@@ -47,7 +47,7 @@ def home(request):
     print(list(user[0].languages.all()))
     context = {"name": f"{user[0].first_name} {user[0].last_name}", "description": user[0].profession.title, "contacts":contacts,
                "edu": education, "user":user[0], "languages": user[0].languages.all(), "interests": user[0].interests.all(), "experiences": user[0].experiences.all(),
-               "projects": user[0].projects.all()}
+               "projects": user[0].projects.all(), "skills": user[0].skills.all()}
     return render(request, 'mainapp/index.html', context)
 
 def setprofile(request):

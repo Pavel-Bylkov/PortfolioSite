@@ -113,55 +113,56 @@
 <!--                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-mobile-apps-delta/" target="_blank">Delta</a></span> - <span class="project-tagline">A responsive Bootstrap one page theme designed to help app developers promote their mobile apps</span>-->
 <!--                </div>&lt;!&ndash;//item&ndash;&gt;-->
             </section><!--//section-->
-            
+
             <section class="skills-section section">
                 <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
-                <div class="skillset">        
+                <div class="skillset">
+                    {% for ski in skills %}
                     <div class="item">
-                        <h3 class="level-title">Python &amp; Django</h3>
+                        <h3 class="level-title">{{ski.title}}</h3>
                         <div class="level-bar">
-                            <div class="level-bar-inner" data-level="98%">
+                            <div class="level-bar-inner" data-level="{{ski.value}}">
                             </div>                                      
                         </div><!--//level-bar-->                                 
                     </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Javascript &amp; jQuery</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="98%">
-                            </div>                                      
-                        </div><!--//level-bar-->                                 
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Angular</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="98%">
-                            </div>                                      
-                        </div><!--//level-bar-->                                 
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">HTML5 &amp; CSS</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="95%">
-                            </div>                                      
-                        </div><!--//level-bar-->                                 
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Ruby on Rails</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="85%">
-                            </div>                                      
-                        </div><!--//level-bar-->                                 
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Sketch &amp; Photoshop</h3>
-                        <div class="level-bar">
-                            <div class="level-bar-inner" data-level="60%">
-                            </div>                                      
+                    {% endfor %}
+<!--                    <div class="item">-->
+<!--                        <h3 class="level-title">Javascript &amp; jQuery</h3>-->
+<!--                        <div class="level-bar">-->
+<!--                            <div class="level-bar-inner" data-level="98%">-->
+<!--                            </div>                                      -->
+<!--                        </div>&lt;!&ndash;//level-bar&ndash;&gt;                                 -->
+<!--                    </div>&lt;!&ndash;//item&ndash;&gt;-->
+<!--                    -->
+<!--                    <div class="item">-->
+<!--                        <h3 class="level-title">Angular</h3>-->
+<!--                        <div class="level-bar">-->
+<!--                            <div class="level-bar-inner" data-level="98%">-->
+<!--                            </div>                                      -->
+<!--                        </div>&lt;!&ndash;//level-bar&ndash;&gt;                                 -->
+<!--                    </div>&lt;!&ndash;//item&ndash;&gt;-->
+<!--                    -->
+<!--                    <div class="item">-->
+<!--                        <h3 class="level-title">HTML5 &amp; CSS</h3>-->
+<!--                        <div class="level-bar">-->
+<!--                            <div class="level-bar-inner" data-level="95%">-->
+<!--                            </div>                                      -->
+<!--                        </div>&lt;!&ndash;//level-bar&ndash;&gt;                                 -->
+<!--                    </div>&lt;!&ndash;//item&ndash;&gt;-->
+<!--                    -->
+<!--                    <div class="item">-->
+<!--                        <h3 class="level-title">Ruby on Rails</h3>-->
+<!--                        <div class="level-bar">-->
+<!--                            <div class="level-bar-inner" data-level="85%">-->
+<!--                            </div>                                      -->
+<!--                        </div>&lt;!&ndash;//level-bar&ndash;&gt;                                 -->
+<!--                    </div>&lt;!&ndash;//item&ndash;&gt;-->
+<!--                    -->
+<!--                    <div class="item">-->
+<!--                        <h3 class="level-title">Sketch &amp; Photoshop</h3>-->
+<!--                        <div class="level-bar">-->
+<!--                            <div class="level-bar-inner" data-level="60%">-->
+<!--                            </div>                                      -->
                         </div><!--//level-bar-->                                 
                     </div><!--//item-->
                     
