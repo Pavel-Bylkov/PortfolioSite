@@ -1,0 +1,582 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block maincontent %}
+<div id="content" class="colM">
+
+          <h1>Change person</h1>
+          <h2>John Conor</h2>
+          <div id="content-main">
+
+
+  <ul class="object-tools">
+
+
+
+<li>
+
+    <a href="/admin/mainapp/person/1/history/" class="historylink">History</a>
+</li>
+
+
+
+
+  </ul>
+
+
+<form enctype="multipart/form-data" method="post" id="person_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="RxNZ0FBTAqrzUPZarUPXqlP49H9jntk1htBe2JDwMulomcnQe1XgLD9RalyDGUEN">
+<div>
+
+
+
+
+
+
+
+  <fieldset class="module aligned ">
+
+
+
+        <div class="form-row field-first_name">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label class="required" for="id_first_name">First name:</label>
+
+                                    <input type="text" name="first_name" value="John" class="vTextField" maxlength="30" required="" id="id_first_name">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-last_name">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label class="required" for="id_last_name">Last name:</label>
+
+                                    <input type="text" name="last_name" value="Conor" class="vTextField" maxlength="30" required="" id="id_last_name">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-email">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_email">Email:</label>
+
+                                    <input type="email" name="email" value="john_conor@mail.ru" class="vTextField" maxlength="40" id="id_email">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-number">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_number">Number:</label>
+
+                                    <input type="text" name="number" value="(732) 915-2434" class="vTextField" maxlength="20" id="id_number">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-url">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_url">Url:</label>
+
+                                    <p class="url">Currently: <a href="http://www.youtube.com">http://www.youtube.com</a><br>Change: <input type="url" name="url" value="http://www.youtube.com" class="vURLField" maxlength="100" id="id_url">
+</p>
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-linkedin">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_linkedin">Linkedin:</label>
+
+                                    <input type="text" name="linkedin" class="vTextField" maxlength="50" id="id_linkedin">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-github">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_github">Github:</label>
+
+                                    <input type="text" name="github" class="vTextField" maxlength="50" id="id_github">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-twitter">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_twitter">Twitter:</label>
+
+                                    <input type="text" name="twitter" class="vTextField" maxlength="50" id="id_twitter">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-profession">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label class="required" for="id_profession">Profession:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="profession">
+    <select name="profession" required="" id="id_profession">
+  <option value="">---------</option>
+
+  <option value="1" selected="">Developer</option>
+
+  <option value="2">bill gates job</option>
+
+</select>
+
+        <a class="related-widget-wrapper-link change-related" id="change_id_profession" data-href-template="/admin/mainapp/profession/__fk__/change/?_to_field=id&amp;_popup=1" data-popup="yes" title="Change selected profession" href="/admin/mainapp/profession/1/change/?_to_field=id&amp;_popup=1"><img src="/static/admin/img/icon-changelink.svg" alt="Change"></a><a class="related-widget-wrapper-link add-related" id="add_id_profession" data-popup="yes" href="/admin/mainapp/profession/add/?_to_field=id&amp;_popup=1" title="Add another profession"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a><a class="related-widget-wrapper-link view-related" id="view_id_profession" data-href-template="/admin/mainapp/profession/__fk__/change/?_to_field=id" title="View selected profession" href="/admin/mainapp/profession/1/change/?_to_field=id"><img src="/static/admin/img/icon-viewlink.svg" alt="View"></a>
+
+</div>
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-education">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_education">Education:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="education">
+    <select name="education" id="id_education" multiple="">
+  <option value="1" selected="">Specialty</option>
+
+  <option value="2">Harvard</option>
+
+</select>
+
+        <a class="related-widget-wrapper-link add-related" id="add_id_education" data-popup="yes" href="/admin/mainapp/education/add/?_to_field=id&amp;_popup=1" title="Add another education"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+
+</div>
+
+
+                        </div>
+
+                        <div class="help" id="id_education_helptext">
+                            <div>Hold down “Control”, or “Command” on a Mac, to select more than one.</div>
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-career_profile">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_career_profile">Career profile:</label>
+
+                                    <textarea name="career_profile" cols="40" rows="10" class="vLargeTextField" maxlength="1000" id="id_career_profile">hlsgert puvyshpertiuvhbspertmiuyvhsperiuyvh paseriuhf vpawieurh nvclzkrjeh fpaiuerh vaperiuv npaekrjn vpieurh fpaern vpiaeruh vpaieruh vpaiuerh vpiaeuhr piaueh fpuiaerh piuaerh paieruh vapeurh vpaerviuhv paeriuhv rpiu hrvpaieurv h</textarea>
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-languages">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_languages">Languages:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="languages">
+    <select name="languages" id="id_languages" multiple="">
+  <option value="2" selected="">EnglishNative</option>
+
+  <option value="3" selected="">RussianExpert</option>
+
+  <option value="4">mandarinvery good</option>
+
+</select>
+
+        <a class="related-widget-wrapper-link add-related" id="add_id_languages" data-popup="yes" href="/admin/mainapp/languages/add/?_to_field=id&amp;_popup=1" title="Add another languages"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+
+</div>
+
+
+                        </div>
+
+                        <div class="help" id="id_languages_helptext">
+                            <div>Hold down “Control”, or “Command” on a Mac, to select more than one.</div>
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-interests">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_interests">Interests:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="interests">
+    <select name="interests" id="id_interests" multiple="">
+  <option value="2" selected="">Chess</option>
+
+  <option value="3" selected="">Math</option>
+
+  <option value="4" selected="">Minecraft</option>
+
+  <option value="5">money</option>
+
+</select>
+
+        <a class="related-widget-wrapper-link add-related" id="add_id_interests" data-popup="yes" href="/admin/mainapp/interests/add/?_to_field=id&amp;_popup=1" title="Add another interests"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+
+</div>
+
+
+                        </div>
+
+                        <div class="help" id="id_interests_helptext">
+                            <div>Hold down “Control”, or “Command” on a Mac, to select more than one.</div>
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-experiences">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_experiences">Experiences:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="experiences">
+    <select name="experiences" id="id_experiences" multiple="">
+  <option value="1" selected="">CEO of Google</option>
+
+  <option value="2" selected="">Tsar of the Russian Empire</option>
+
+</select>
+
+        <a class="related-widget-wrapper-link add-related" id="add_id_experiences" data-popup="yes" href="/admin/mainapp/experiences/add/?_to_field=id&amp;_popup=1" title="Add another experiences"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+
+</div>
+
+
+                        </div>
+
+                        <div class="help" id="id_experiences_helptext">
+                            <div>Hold down “Control”, or “Command” on a Mac, to select more than one.</div>
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-companies">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_companies">Companies:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="companies">
+    <select name="companies" id="id_companies" multiple="">
+  <option value="1" selected="">Companies</option>
+
+</select>
+
+
+
+</div>
+
+
+                        </div>
+
+                        <div class="help" id="id_companies_helptext">
+                            <div>Hold down “Control”, or “Command” on a Mac, to select more than one.</div>
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-roles">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_roles">Roles:</label>
+
+                                    <textarea name="roles" cols="40" rows="10" id="id_roles">{}</textarea>
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-photo">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_photo">Photo:</label>
+
+                                    <input type="file" name="photo" accept="image/*" id="id_photo">
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-projects">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_projects">Projects:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="project">
+    <select name="projects" id="id_projects" multiple="">
+  <option value="1" selected="">Manhattan Project</option>
+
+</select>
+
+        <a class="related-widget-wrapper-link add-related" id="add_id_projects" data-popup="yes" href="/admin/mainapp/project/add/?_to_field=id&amp;_popup=1" title="Add another project"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+
+</div>
+
+
+                        </div>
+
+                        <div class="help" id="id_projects_helptext">
+                            <div>Hold down “Control”, or “Command” on a Mac, to select more than one.</div>
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-project_description">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_project_description">Project description:</label>
+
+                                    <textarea name="project_description" cols="40" rows="10" class="vLargeTextField" maxlength="1000" id="id_project_description">These are my projects that I have been working on since 1939. I am vey proud of these projects and happy to see what they have become, knowing that they can get much better with the amount of potential that they have.</textarea>
+
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="form-row field-skills">
+
+
+                <div>
+
+                        <div class="flex-container">
+
+                                <label for="id_skills">Skills:</label>
+
+                                    <div class="related-widget-wrapper" data-model-ref="skills">
+    <select name="skills" id="id_skills" multiple="">
+  <option value="1" selected="">Gaming</option>
+
+  <option value="2" selected="">English Language Arts</option>
+
+  <option value="3" selected="">Mathematic</option>
+
+</select>
+
+        <a class="related-widget-wrapper-link add-related" id="add_id_skills" data-popup="yes" href="/admin/mainapp/skills/add/?_to_field=id&amp;_popup=1" title="Add another skills"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+
+</div>
+
+
+                        </div>
+
+                        <div class="help" id="id_skills_helptext">
+                            <div>Hold down “Control”, or “Command” on a Mac, to select more than one.</div>
+                        </div>
+
+                </div>
+
+
+        </div>
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+<input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue">
+
+
+
+    <a href="/admin/mainapp/person/1/delete/" class="deletelink">Delete</a>
+
+
+</div>
+
+
+
+    <script id="django-admin-form-add-constants" src="/static/admin/js/change_form.js" async="">
+    </script>
+
+
+
+
+<script id="django-admin-prepopulated-fields-constants" src="/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+
+          <br class="clear">
+        </div>
+
+{% endblock %}

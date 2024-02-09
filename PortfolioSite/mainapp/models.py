@@ -17,7 +17,7 @@ class Person(models.Model):
     interests = models.ManyToManyField("Interests", blank=True)
     experiences = models.ManyToManyField("Experiences", blank=True)
     companies = models.ManyToManyField("Companies", blank=True)
-    roles = models.JSONField(blank=True)
+    roles = models.JSONField(blank=True, default=dict())
     photo = models.ImageField(upload_to="photos/%Y/%m/", blank=True)
     projects = models.ManyToManyField("Project", blank=True)
     project_description = models.TextField(max_length=1000, blank=True)
