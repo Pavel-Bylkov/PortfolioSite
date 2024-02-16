@@ -7,7 +7,9 @@ from mainapp.models import *
 topic = "css/styles.css"
 # Create your views here.
 def home(request, id=0):
-    print(request, id)
+    if request.user.is_anonymous:
+        return HttpResponseRedirect('/auth/login')
+    print(request.user, id)
     user = Person.objects.all()
     if not user:
         prof = Profession.objects.create(title="Developer")

@@ -48,8 +48,16 @@
                 </select>
                 <button type="submit" class="btn btn-primary">Change</button>
             </form>
+            {% if not user.is_authenticated %}
+                             <a class="p-2 text-dark" href="{% url 'logout' %}">Выйти</a>
+                        {% else %}
+                             <a class="p-2 text-dark" href="{% url 'login' %}">Войти</a>
+                             <a class="p-2 text-dark" href="{% url 'signup' %}">Регистрация</a>
+                        {% endif %}
         </div><!--//container-->
+
     </footer><!--//footer-->
+
  
     <!-- Javascript -->          
     <script type="text/javascript" src="{% static 'plugins/jquery-1.11.3.min.js' %}"></script>
