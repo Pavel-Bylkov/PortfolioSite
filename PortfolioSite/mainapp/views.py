@@ -8,7 +8,7 @@ topic = "css/styles.css"
 # Create your views here.
 def home(request, id=0):
     if request.user.is_anonymous:
-        return HttpResponseRedirect('/auth/login')
+        return HttpResponseRedirect('/accounts/login')
     print(request.user, id)
     user = Person.objects.all()
     if not user:
@@ -53,7 +53,10 @@ def home(request, id=0):
     print(list(user[id].languages.all()))
     context = {"name": f"{user[id].first_name} {user[id].last_name}", "description": user[id].profession.title, "contacts":contacts,
                "edu": education, "user":user[id], "languages": user[id].languages.all(), "interests": user[id].interests.all(), "experiences": user[id].experiences.all(),
-               "projects": user[id].projects.all(), "skills": user[id].skills.all(), "topic": topic}
+               "projects": user[id].projects.all(), "skills": user[id].skills.all(), "topic": topic, "photo":user[id].photo,}
+    if user[id].photo:
+        print(user[id].photo.url)
+
     return render(request, 'mainapp/index.html', context)
 
 def setprofile(request):
